@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "59EE4296-D909-4FA3-AA35-0BDBCC1E4776"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37DB6D75-1DE1-4F61-ABFB-12E059DD29C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eat2Gether/UserInterface/Onboarding/LocationFinderView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13176F33-AAAD-42B5-B54B-5F6C7908D6A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eat2Gether/UserInterface/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ContentView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "13176F33-AAAD-42B5-B54B-5F6C7908D6A3 - 33eb8099b288c74e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Eat2Gether.ContentView.(isShown in _2B8C43D08EC2F85C4891E956F7F8F273) : Swift.Bool"
+                  moduleName = "Eat2Gether"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiyuanchi/Documents/iOSdev/Eat2Gether/Eat2Gether/UserInterface/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "13176F33-AAAD-42B5-B54B-5F6C7908D6A3 - 2d8423e6656324c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eat2Gether.ContentView.init() -&gt; Eat2Gether.ContentView"
+                  moduleName = "Eat2Gether"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaiyuanchi/Documents/iOSdev/Eat2Gether/Eat2Gether/UserInterface/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

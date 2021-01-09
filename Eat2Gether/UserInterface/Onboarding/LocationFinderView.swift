@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LocationFinderView: View {
+    @State var postalCode: String = ""
+    @Binding var selector: String?
+    
     var body: some View {
         ZStack {
             Constants.aqua.edgesIgnoringSafeArea(.all)
@@ -23,15 +26,21 @@ struct LocationFinderView: View {
                     .font(.system(size: 12))
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                Text("Enable location services")
-                    .font(.system(size: 14))
-                    .bold()
-                    .foregroundColor(.black)
-                    .padding(8)
-                    .padding(.horizontal, 24)
+                TextField("Enter your postal code", text: $postalCode)
+                    .padding(12)
                     .background(Color.white)
-                    .cornerRadius(16)
-                    .padding(16)
+                    .cornerRadius(9)
+                Button(action: {
+                    defaults.set(postalCode, forKey: "postalCode")
+                    selector = "home"
+                }) {
+                    Text("Good to go!")
+                        .font(.system(size: 14))
+                        .foregroundColor(Constants.aqua)
+                        .frame(width: 200, height: 30)
+                        .background(Color.white)
+                        .cornerRadius(16)
+                }
                 Spacer()
                 HStack(spacing: 20) {
                     Circle()
@@ -51,6 +60,6 @@ struct LocationFinderView: View {
 
 struct LocationFinderView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationFinderView()
+        LocationFinderView(selector: Binding.constant("locationFinder"))
     }
 }

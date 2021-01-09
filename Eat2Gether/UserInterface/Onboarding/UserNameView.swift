@@ -9,7 +9,9 @@ import SwiftUI
 
 struct UserNameView: View {
     @State var userName: String = ""
-    
+    @State var postalCode: String = ""
+    @Binding var isShown: Bool
+        
     var body: some View {
         ZStack {
             Constants.aqua.edgesIgnoringSafeArea(.all)
@@ -26,29 +28,37 @@ struct UserNameView: View {
                     .padding(12)
                     .background(Color.white)
                     .cornerRadius(9)
-                Text("This will only be seen by those you invite into a room")
-                    .font(.system(size: 12))
+                Text("What's your postal code?")
+                    .font(.system(size: 24))
                     .foregroundColor(.white)
+                    .bold()
                     .multilineTextAlignment(.center)
-                Spacer()
-                HStack(spacing: 20) {
-                    Circle()
-                        .fill(Constants.orange)
-                        .frame(width: 12, height: 12)
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 12, height: 12)
+                TextField("Enter your postal code", text: $postalCode)
+                    .padding(12)
+                    .background(Color.white)
+                    .cornerRadius(9)
+                    .padding(.bottom, 12)
+                Button(action: {
+                    defaults.set(userName, forKey: "userName")
+                    defaults.set(postalCode, forKey: "postalCode")
+                    isShown = false
+                }) {
+                    Text("Let's start")
+                        .font(.system(size: 14))
+                        .foregroundColor(Constants.aqua)
+                        .frame(width: 200, height: 30)
+                        .background(Color.white)
+                        .cornerRadius(16)
                 }
-                .padding(.bottom, 60)
+                Spacer()
             }
             .frame(width: 312)
         }
-
     }
 }
 
 struct UserNameView_Previews: PreviewProvider {
     static var previews: some View {
-        UserNameView()
+        UserNameView(isShown: Binding.constant(true))
     }
 }

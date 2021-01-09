@@ -8,9 +8,14 @@
 import SwiftUI
 import CoreData
 
+let defaults = UserDefaults.standard
 struct ContentView: View {
+    @State private var isShown: Bool = !defaults.bool(forKey: "userName")
     var body: some View {
-        UserNameView()
+        HomeScreenView()
+            .fullScreenCover(isPresented: $isShown) {
+                UserNameView(isShown: $isShown)
+            }
     }
 }
 struct ContentView_Previews: PreviewProvider {
