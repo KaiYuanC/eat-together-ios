@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-struct Constants {
-     static let aqua: Color = Color(red: 0 / 255, green: 167 / 255, blue: 157 / 255)
- }
-
 struct HomeScreenView: View {
     var body: some View {
         VStack (spacing: 0){

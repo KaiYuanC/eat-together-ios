@@ -64,6 +64,8 @@ struct RoomView: View {
     }
     var bottomButtonView: some View {
         VStack(spacing: 12) {
+            Text("Waiting on 3/4 diners to finish...")
+                .foregroundColor(.orange)
             Button(action: {
                 print("Edit preferences")
             }) {
