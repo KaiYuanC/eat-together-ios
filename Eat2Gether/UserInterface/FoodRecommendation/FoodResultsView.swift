@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FoodResultsView: View {
+    @Binding var viewResult: Bool
+    
     var body: some View {
         VStack {
             Text("Top Pick")
@@ -18,7 +20,7 @@ struct FoodResultsView: View {
                 .padding(.vertical, 24)
             HStack (spacing: 0) {
                 ZStack {
-                    Image("foodBackground")
+                    Image("food4")
                         .resizable()
                         .frame(width: 120, height: 120)
                         .clipShape(Circle())
@@ -32,9 +34,9 @@ struct FoodResultsView: View {
                         .opacity(0.8)
                 }
                 VStack(alignment: .leading) {
-                    Text("Sushi Restaurant 1")
+                    Text("Lai Wah Heen")
                         .font(.title2)
-                    Text("12 Address Road, X0X 0X0\n$-$$")
+                    Text("108 Chestnut St, M5G 1R3\n$$")
                         .font(.body)
                 }
             }
@@ -46,7 +48,7 @@ struct FoodResultsView: View {
                 .padding(.vertical, 24)
             HStack (spacing: 0) {
                 ZStack {
-                    Image("foodBackground")
+                    Image("food7")
                         .resizable()
                         .frame(width: 120, height: 120)
                         .clipShape(Circle())
@@ -60,18 +62,32 @@ struct FoodResultsView: View {
                         .opacity(0.8)
                 }
                 VStack(alignment: .leading) {
-                    Text("Sushi Restaurant 2")
+                    Text("Tenon Vegan Sushi")
                         .font(.title2)
-                    Text("12 Address Road, X0X 0X0\n$-$$")
+                    Text("487 Bloor St W, M5S 1Y2\n$-$$")
                         .font(.body)
                 }
             }
+            Button(action: {
+                viewResult = false
+            }) {
+                Text("Back to room")
+                    .font(.system(size: 14))
+                    .foregroundColor(Constants.aqua)
+                    .frame(width: 200, height: 30)
+                    .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Constants.aqua, lineWidth: 2)
+                            )
+                    .padding(.vertical, 18)
+            }
         }
+        .padding(.trailing)
     }
 }
 
 struct FoodResultsView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodResultsView()
+        FoodResultsView(viewResult: Binding.constant(true))
     }
 }

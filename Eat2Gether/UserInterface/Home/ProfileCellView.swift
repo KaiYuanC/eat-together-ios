@@ -24,6 +24,7 @@ struct ProfileCellView: View {
     var image: String = "1"
     var isHost: Bool = false
     var preferences: [PreferenceTag] = []
+    var showPreferences: Bool = true
     
     var body: some View {
         VStack {
@@ -48,9 +49,11 @@ struct ProfileCellView: View {
                 .bold()
                 .foregroundColor(Color.black)
             ScrollView {
-                VStack (spacing: 8) {
-                    ForEach(0..<preferences.count) {i in
-                        PreferenceView(type: preferences[i].type, label: preferences[i].detail)
+                if showPreferences {
+                    VStack (spacing: 8) {
+                        ForEach(0..<preferences.count) {i in
+                            PreferenceView(type: preferences[i].type, label: preferences[i].detail)
+                        }
                     }
                 }
             }

@@ -11,49 +11,75 @@ struct FoodOption {
     var image: String
     var name: String
     var address: String
-    var priceRange: String
     var preferences: [PreferenceTag]
     var ratings: String
     var review: String
 }
 
 struct FoodOptionView: View {
+    @Binding var startVoting: Bool
+    @Binding var allVoted: Bool
+    @State var counter = 0
+    var foodOptions: [FoodOption]
+    
     var body: some View {
+        let foodOption = foodOptions[counter]
         VStack {
             Spacer()
-            VStack(alignment: .leading) {
-                Image("foodBackground")
-                    .resizable()
-                    .frame(width: 320, height: 240)
-                Text("Sushi Restaurant 1")
-                    .font(.title2)
-                    .padding(.horizontal)
-                Text("12 Address Road, X0X 0X0\n$-$$")
-                    .font(.body)
-                    .padding(.horizontal)
-                VStack {
-                    Text("Menu includes:")
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Image(foodOption.image)
+                        .resizable()
+                        .frame(width: 320, height: 240)
+                    Text(foodOption.name)
+                        .font(.title2)
+                        .padding(.horizontal)
+                    Text(foodOption.address)
+                        .font(.body)
+                        .padding(.horizontal)
+                    VStack {
+                        Text("Menu includes:")
+                            .font(.system(size: 24))
+                            .foregroundColor(Constants.aqua)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 8)
+                        HStack {
+                            Spacer()
+                            PreferenceView(type: .dietRestriction, label: "🍞 GF")
+                            PreferenceView(type: .dietRestriction, label: "🥜  Nut-free")
+                            Spacer()
+                        }
+                        .padding(.bottom, 8)
+                    }
+                    Text("Overall Rating: ⭐️⭐️⭐️⭐️⭐️")
                         .font(.system(size: 24))
                         .foregroundColor(Constants.aqua)
                         .bold()
-                        .multilineTextAlignment(.center)
-                        .padding(.vertical, 12)
-                    HStack {
-                        PreferenceView(type: .dietRestriction, label: "🥑  Vegan")
-                        PreferenceView(type: .dietRestriction, label: "🥜  Nut-free")
-                        PreferenceView(type: .dietRestriction, label: "🥕  Vegetarian")
-                    }
-                    .padding(.bottom, 24)
+                        .padding(.bottom, 8)
+                        .padding(.leading)
+                    Text("Review")
+                        .bold()
+                        .padding(.bottom, 8)
+                        .padding(.leading)
+                    Text(foodOption.review)
+                        .padding(.bottom, 10)
+                        .padding(.leading)
                 }
             }
-            .frame(width: 320)
+            .frame(width: 320, height: 540)
             .background(Color.white)
             .cornerRadius(16)
             .shadow(radius: 5)
             Spacer()
             HStack {
                 Button(action: {
-                    print("No")
+                    if counter + 1 >= foodOptions.count {
+                        startVoting = false
+                        allVoted = true
+                    } else {
+                        counter += 1
+                    }
                 }) {
                     Text("❌")
                         .padding(30)
@@ -64,7 +90,12 @@ struct FoodOptionView: View {
                 }
                 Spacer()
                 Button(action: {
-                    print("Yes")
+                    if counter + 1 >= foodOptions.count {
+                        startVoting = false
+                        allVoted = true
+                    } else {
+                        counter += 1
+                    }
                 }) {
                     Text("👍")
                         .padding(30)
@@ -81,6 +112,6 @@ struct FoodOptionView: View {
 
 struct FoodOptionView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodOptionView()
+        FoodOptionView(startVoting: Binding.constant(true), allVoted: Binding.constant(true), foodOptions: Constants.foodOptions)
     }
 }

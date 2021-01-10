@@ -9,9 +9,11 @@ import SwiftUI
 
 struct RoomView: View {
     @State private var preferences: [PreferenceTag] = []
-    @State private var allFilled: Bool = false
+    @State private var allVoted: Bool = false
     @State private var filterShown: Bool = false
-    
+    @State private var startVoting: Bool = false
+    @State private var viewResult: Bool = false
+        
     var body: some View {
         VStack(spacing: 0) {
             roomInfoView
@@ -25,7 +27,7 @@ struct RoomView: View {
                 HStack {
                     ForEach(0..<5) {i in
                         ProfileCellView(name:Constants.names[i],
-                                        image: String(i + 1), isHost: i == 2 ? true : false, preferences: Constants.preferences[i])
+                                        image: String(i + 1), isHost: i == 2 ? true : false, preferences: Constants.preferences2[i])
                     }
                 }
             }
@@ -71,6 +73,7 @@ struct RoomView: View {
         VStack(spacing: 12) {
             Text("Waiting on 1/5 diners to finish...")
                 .foregroundColor(.orange)
+                .opacity(preferences.count == 0 ? 1 : 0)
             Button(action: {
                 filterShown = true
             }) {
@@ -87,9 +90,9 @@ struct RoomView: View {
                 DietFilterView(filterShown: $filterShown, preferences: $preferences)
             }
             Button(action: {
-                print("Let’s start")
+                startVoting = true
             }) {
-                Text("Let’s start")
+                Text(allVoted ? "Click to view results" : "Let’s start")
                     .font(.system(size: 14))
                     .bold()
                     .foregroundColor(Color.white)
@@ -98,6 +101,14 @@ struct RoomView: View {
                     .cornerRadius(20)
             }
             .disabled(preferences.count == 0)
+            .fullScreenCover(isPresented: $startVoting) {
+                if allVoted {
+                    FoodResultsView(viewResult: $startVoting)
+                } else {
+                    FoodOptionView(startVoting: $startVoting, allVoted: $allVoted, foodOptions: Constants.foodOptions)
+                    
+                }
+            }
         }
     }
 }
