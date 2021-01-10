@@ -26,6 +26,8 @@
 		32722CDB25A90CC90081FB5D /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32722CDA25A90CC90081FB5D /* UserNameView.swift */; };
 		32722CE425A90D6E0081FB5D /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32722CE325A90D6E0081FB5D /* RoomView.swift */; };
 		32722CE925A90D850081FB5D /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32722CE825A90D850081FB5D /* ProfileCellView.swift */; };
+		3288FBCD25AAEAE4005D3AFB /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288FBCC25AAEAE4005D3AFB /* RequestService.swift */; };
+		3288FBD225AB01AF005D3AFB /* userViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3288FBD125AB01AF005D3AFB /* userViewModel.swift */; };
 		3290914125A980FF00CE3C8F /* LocationFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3290914025A980FF00CE3C8F /* LocationFinderView.swift */; };
 		3290915525A987B200CE3C8F /* EnteryCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3290915425A987B200CE3C8F /* EnteryCodeView.swift */; };
 		32EB805625AAC1CE00651C22 /* newRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB805525AAC1CE00651C22 /* newRoomView.swift */; };
@@ -74,6 +76,8 @@
 		32722CDA25A90CC90081FB5D /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
 		32722CE325A90D6E0081FB5D /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
 		32722CE825A90D850081FB5D /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
+		3288FBCC25AAEAE4005D3AFB /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		3288FBD125AB01AF005D3AFB /* userViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userViewModel.swift; sourceTree = "<group>"; };
 		3290914025A980FF00CE3C8F /* LocationFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderView.swift; sourceTree = "<group>"; };
 		3290915425A987B200CE3C8F /* EnteryCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteryCodeView.swift; sourceTree = "<group>"; };
 		32EB805525AAC1CE00651C22 /* newRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newRoomView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				325F866725A80E4A00B675C8 /* Eat2GetherApp.swift */,
 				32722CDF25A90CF70081FB5D /* UserInterface */,
 				3290915025A985AC00CE3C8F /* ViewModel */,
+				3288FBCB25AAEAB8005D3AFB /* Services */,
 				325F866B25A80E4E00B675C8 /* Assets.xcassets */,
 				325F867025A80E4E00B675C8 /* Persistence.swift */,
 				325F867525A80E4E00B675C8 /* Info.plist */,
@@ -187,6 +192,14 @@
 			path = UserInterface;
 			sourceTree = "<group>";
 		};
+		3288FBCB25AAEAB8005D3AFB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3288FBCC25AAEAE4005D3AFB /* RequestService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3290914D25A9852F00CE3C8F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +235,7 @@
 		3290915025A985AC00CE3C8F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3288FBD125AB01AF005D3AFB /* userViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -357,12 +371,14 @@
 			files = (
 				325F867125A80E4E00B675C8 /* Persistence.swift in Sources */,
 				323A8DE025A98DE500F9DAA6 /* Constants.swift in Sources */,
+				3288FBCD25AAEAE4005D3AFB /* RequestService.swift in Sources */,
 				323A8DE525A9935B00F9DAA6 /* DietFilterView.swift in Sources */,
 				323A8DEF25A9937600F9DAA6 /* CuisineFilterView.swift in Sources */,
 				323A8DEA25A9936800F9DAA6 /* PriceFilterView.swift in Sources */,
 				323A8DF425A9938500F9DAA6 /* TransportationFilterView.swift in Sources */,
 				32722CCE25A8F2DE0081FB5D /* HomeScreenView.swift in Sources */,
 				3290915525A987B200CE3C8F /* EnteryCodeView.swift in Sources */,
+				3288FBD225AB01AF005D3AFB /* userViewModel.swift in Sources */,
 				325F866A25A80E4A00B675C8 /* ContentView.swift in Sources */,
 				32722CE425A90D6E0081FB5D /* RoomView.swift in Sources */,
 				32722CE925A90D850081FB5D /* ProfileCellView.swift in Sources */,

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var nextRoomID = 93830
+
 struct HomeScreenView: View {
     
     var body: some View {
@@ -25,7 +27,7 @@ struct HomeScreenView: View {
                         )
                         .padding(.bottom, 18)
                 }
-                NavigationLink(destination: newRoomView().navigationBarTitleDisplayMode(.inline)) {
+                NavigationLink(destination: RoomView(roomID: String(Int.random(in: 10000...99999))).navigationBarTitleDisplayMode(.inline)) {
                     Text("Generate room")
                         .font(.system(size: 14))
                         .foregroundColor(Color.white)

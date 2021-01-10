@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+struct ProfileViewModel {
+    var userID: String
+    var roomID: String
+    var preferences: [PreferenceTag]
+    var isHost: Bool
+    var image: String
+}
+
 struct UserNameView: View {
     @State var userName: String = ""
     @State var postalCode: String = ""
     @Binding var isShown: Bool
         
+    //@ObservedObject var viewModel: createProfileModel
     var body: some View {
         ZStack {
             Constants.aqua.edgesIgnoringSafeArea(.all)

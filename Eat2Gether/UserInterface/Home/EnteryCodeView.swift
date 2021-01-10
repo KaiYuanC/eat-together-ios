@@ -28,7 +28,7 @@ struct EnteryCodeView: View {
                     .background(Color.white)
                     .cornerRadius(16)
                     .keyboardType(.decimalPad)
-                NavigationLink(destination: RoomView().navigationBarTitleDisplayMode(.inline)) {
+                NavigationLink(destination: RoomView(roomID: roomID).navigationBarTitleDisplayMode(.inline)) {
                     Text("Submit")
                         .font(.system(size: 14))
                         .bold()

@@ -13,7 +13,8 @@ struct RoomView: View {
     @State private var filterShown: Bool = false
     @State private var startVoting: Bool = false
     @State private var viewResult: Bool = false
-        
+    var roomID: String
+    
     var body: some View {
         VStack(spacing: 0) {
             roomInfoView
@@ -49,7 +50,7 @@ struct RoomView: View {
                 .foregroundColor(Color.white)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(width: 196)
-            Text("93829")
+            Text(roomID)
                 .bold()
                 .font(.system(size: 55))
                 .foregroundColor(Color.white)
@@ -115,6 +116,6 @@ struct RoomView: View {
 
 struct RoomView_Previews: PreviewProvider {
     static var previews: some View {
-        RoomView()
+        RoomView(roomID: "93829")
     }
 }
