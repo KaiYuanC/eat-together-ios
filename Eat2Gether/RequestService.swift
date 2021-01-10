@@ -180,7 +180,7 @@ class RequestService {
 
     }
 
-    func addedPreferenceForUser(userId, roomId) {
+    func addPreferenceRoom(userId, roomId) {
         let url = String(format: "https://eat-together-backend.herokuapp.com/rooms/\(roomId)/\(userId)/true")
     }
 
@@ -207,7 +207,7 @@ class RequestService {
         // addUserToRoom()
     }
     func addPreferences() {
-        // call addUserPreferences() and addedPreferenceForUser()
+        // call addUserPreferences() and addPreferenceRoom()
         // one adds preferences to profile, other adds that the
         // user added preferences in room
     }
