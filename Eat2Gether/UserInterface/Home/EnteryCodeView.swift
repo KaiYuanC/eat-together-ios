@@ -15,6 +15,7 @@ struct EnteryCodeView: View {
             Constants.aqua.edgesIgnoringSafeArea(.all)
             VStack (spacing: 24) {
                 Image("SmallAppIcon")
+                    .padding(.top, 12)
                 Spacer()
                 Text("Enter the 5 digit code")
                     .font(.system(size: 24))
@@ -27,9 +28,7 @@ struct EnteryCodeView: View {
                     .background(Color.white)
                     .cornerRadius(16)
                     .keyboardType(.decimalPad)
-                Button(action: {
-                    print("Submit")
-                }) {
+                NavigationLink(destination: RoomView().navigationBarTitleDisplayMode(.inline)) {
                     Text("Submit")
                         .font(.system(size: 14))
                         .bold()
@@ -37,8 +36,8 @@ struct EnteryCodeView: View {
                         .frame(width: 291, height: 30)
                         .background(Constants.orange)
                         .cornerRadius(20)
+                        .padding(.bottom, 60)
                 }
-                .padding(.bottom, 60)
                 Spacer()
             }
             .frame(width: 312)

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TransportationFilterView: View {
+    @Binding var filterShown: Bool
+    @Binding var preferences: [PreferenceTag]
+    
     var body: some View {
         VStack {
             Spacer()
@@ -16,14 +19,14 @@ struct TransportationFilterView: View {
                 .foregroundColor(Constants.aqua)
                 .bold()
                 .multilineTextAlignment(.center)
-                .padding(.vertical, 24)
+                .padding(.vertical, 32)
             HStack {
-                TransOptionView(emoji: "👣", text: "By foot")
-                TransOptionView(emoji: "🚗", text: "By car")
-                TransOptionView(emoji: "📱", text: "Order online")
+                TransOptionView(emoji: "👣", text: "By foot", preferences: $preferences)
+                TransOptionView(emoji: "🚗", text: "By car", preferences: $preferences)
+                TransOptionView(emoji: "📱", text: "Order online", preferences: $preferences)
             }
             Button(action: {
-                print("Join a room")
+                filterShown = false
             }) {
                 Text("Continue")
                     .font(.system(size: 14))
@@ -33,8 +36,8 @@ struct TransportationFilterView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Constants.aqua, lineWidth: 2)
                             )
+                    .padding(.vertical, 18)
             }
-            .padding(.vertical, 18)
 
             Spacer()
             HStack(spacing: 20) {
@@ -61,16 +64,25 @@ struct TransportationFilterView: View {
 struct TransOptionView: View {
     var emoji: String
     var text: String
+    @State var selected: Bool = false
+    @Binding var preferences: [PreferenceTag]
     
     var body: some View {
         Button(action: {
-            print("Join a room")
+            selected.toggle()
+            if selected {
+                preferences.append(PreferenceTag(type: .transportation, detail: text))
+            }
         }) {
             VStack {
                 Text(emoji)
                     .padding(30)
                     .background(Constants.lightGreen)
                     .clipShape(Circle())
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 50)
+                            .stroke(selected ? Constants.orange : Constants.lightGreen, lineWidth: 2)
+                    )
                 Text(text)
                     .font(.system(size: 14))
                     .bold()
@@ -82,6 +94,6 @@ struct TransOptionView: View {
 
 struct TransportationFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        TransportationFilterView()
+        TransportationFilterView(filterShown: Binding.constant(true), preferences: Binding.constant([]))
     }
 }

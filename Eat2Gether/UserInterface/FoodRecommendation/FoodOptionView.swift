@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+struct FoodOption {
+    var image: String
+    var name: String
+    var address: String
+    var priceRange: String
+    var preferences: [PreferenceTag]
+    var ratings: String
+    var review: String
+}
+
 struct FoodOptionView: View {
     var body: some View {
         VStack {

@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    @State private var joinRoom: Bool = false
-    @State private var generateRoom: Bool = false
     
     var body: some View {
         NavigationView {
             VStack (spacing: 0) {
                 Image("HomeScreenIcon")
                     .padding(.bottom, 48)
-                NavigationLink(destination: RoomView().navigationBarTitleDisplayMode(.inline)) {
+                NavigationLink(destination: EnteryCodeView().navigationBarTitleDisplayMode(.inline)) {
                     Text("Join a room")
                         .font(.system(size: 14))
                         .foregroundColor(Constants.aqua)

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CuisineFilterView: View {
+    @Binding var filterShown: Bool
+    @Binding var preferences: [PreferenceTag]
+    
     var body: some View {
         VStack {
             Spacer()
@@ -17,31 +20,32 @@ struct CuisineFilterView: View {
                 .bold()
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 24)
+                .padding(.top, 24)
             VStack (spacing: 24) {
                 HStack {
-                    CuisineOptionView(emoji: "🇨🇳", text: "Chinese")
-                    CuisineOptionView(emoji: "🍔", text: "Fast food")
-                    CuisineOptionView(emoji: "🇰🇷", text: "Korean")
+                    CuisineOptionView(emoji: "🇨🇳", text: "Chinese", preferences: $preferences)
+                    CuisineOptionView(emoji: "🍔", text: "Fast food", preferences: $preferences)
+                    CuisineOptionView(emoji: "🇰🇷", text: "Korean", preferences: $preferences)
                 }
                 HStack {
-                    CuisineOptionView(emoji: "🥞", text: "Breakfast")
-                    CuisineOptionView(emoji: "🍕", text: "Pizza")
-                    CuisineOptionView(emoji: "🇲🇽", text: "Mexican")
+                    CuisineOptionView(emoji: "🥞", text: "Breakfast", preferences: $preferences)
+                    CuisineOptionView(emoji: "🍕", text: "Pizza", preferences: $preferences)
+                    CuisineOptionView(emoji: "🇲🇽", text: "Mexican", preferences: $preferences)
                 }
                 HStack {
-                    CuisineOptionView(emoji: "🇯🇵", text: "Japanese")
-                    CuisineOptionView(emoji: "🇺🇸", text: "American")
-                    CuisineOptionView(emoji: "🇮🇳", text: "Indian")
+                    CuisineOptionView(emoji: "🇯🇵", text: "Japanese", preferences: $preferences)
+                    CuisineOptionView(emoji: "🇺🇸", text: "American", preferences: $preferences)
+                    CuisineOptionView(emoji: "🇮🇳", text: "Indian", preferences: $preferences)
                 }
                 HStack {
-                    CuisineOptionView(emoji: "🌱", text: "Healthy")
-                    CuisineOptionView(emoji: "🇮🇹", text: "Italian")
-                    CuisineOptionView(emoji: "🇹🇭", text: "Thai")
+                    CuisineOptionView(emoji: "🌱", text: "Healthy", preferences: $preferences)
+                    CuisineOptionView(emoji: "🇮🇹", text: "Italian", preferences: $preferences)
+                    CuisineOptionView(emoji: "🇹🇭", text: "Thai", preferences: $preferences)
                 }
             }
-            Button(action: {
-                print("Continue")
-            }) {
+            NavigationLink(destination: TransportationFilterView(filterShown: $filterShown, preferences: $preferences)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarBackButtonHidden(true)) {
                 Text("Continue")
                     .font(.system(size: 14))
                     .foregroundColor(Constants.aqua)
@@ -50,8 +54,8 @@ struct CuisineFilterView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Constants.aqua, lineWidth: 2)
                             )
+                    .padding(.vertical, 18)
             }
-            .padding(.vertical, 18)
 
             Spacer()
             HStack(spacing: 20) {
@@ -78,16 +82,25 @@ struct CuisineFilterView: View {
 struct CuisineOptionView: View {
     var emoji: String
     var text: String
+    @State var selected: Bool = false
+    @Binding var preferences: [PreferenceTag]
     
     var body: some View {
         Button(action: {
-            print("Join a room")
+            selected.toggle()
+            if selected {
+                preferences.append(PreferenceTag(type: .transportation, detail: text))
+            }
         }) {
             VStack {
                 Text(emoji)
                     .padding(30)
                     .background(Constants.lightGray)
                     .clipShape(Circle())
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 50)
+                            .stroke(selected ? Constants.orange : Constants.lightGray, lineWidth: 2)
+                    )
                 Text(text)
                     .font(.system(size: 14))
                     .bold()
@@ -99,6 +112,6 @@ struct CuisineOptionView: View {
 
 struct CuisineFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        CuisineFilterView()
+        CuisineFilterView(filterShown: Binding.constant(true), preferences: Binding.constant([]))
     }
 }

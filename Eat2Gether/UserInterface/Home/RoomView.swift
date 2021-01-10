@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct RoomView: View {
+    @State private var preferences: [PreferenceTag] = []
+    @State private var allFilled: Bool = false
+    @State private var filterShown: Bool = false
+    
     var body: some View {
         VStack(spacing: 0) {
             roomInfoView
@@ -19,9 +23,9 @@ struct RoomView: View {
                 .padding(.vertical, 12)
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(0..<10) {i in
+                    ForEach(0..<5) {i in
                         ProfileCellView(name:Constants.names[i],
-                                        image: String(Int.random(in: 1...5)), isHost: i == 2 ? true : false, preferences: Constants.preferences[i])
+                                        image: String(i + 1), isHost: i == 2 ? true : false, preferences: Constants.preferences[i])
                     }
                 }
             }
@@ -65,10 +69,10 @@ struct RoomView: View {
     }
     var bottomButtonView: some View {
         VStack(spacing: 12) {
-            Text("Waiting on 3/4 diners to finish...")
+            Text("Waiting on 1/5 diners to finish...")
                 .foregroundColor(.orange)
             Button(action: {
-                print("Edit preferences")
+                filterShown = true
             }) {
                 Text("Edit preferences")
                     .bold()
@@ -79,6 +83,8 @@ struct RoomView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(Constants.aqua, lineWidth: 2)
                             )
+            }.fullScreenCover(isPresented: $filterShown) {
+                DietFilterView(filterShown: $filterShown, preferences: $preferences)
             }
             Button(action: {
                 print("Let’s start")
@@ -88,9 +94,10 @@ struct RoomView: View {
                     .bold()
                     .foregroundColor(Color.white)
                     .frame(width: 291, height: 30)
-                    .background(Constants.aqua)
+                    .background(preferences.count == 0 ? Constants.pewter : Constants.aqua)
                     .cornerRadius(20)
             }
+            .disabled(preferences.count == 0)
         }
     }
 }
