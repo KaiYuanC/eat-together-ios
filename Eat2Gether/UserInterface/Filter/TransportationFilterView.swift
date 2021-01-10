@@ -20,7 +20,7 @@ struct TransportationFilterView: View {
             HStack {
                 TransOptionView(emoji: "👣", text: "By foot")
                 TransOptionView(emoji: "🚗", text: "By car")
-                TransOptionView(emoji: "🚎", text: "public transit")
+                TransOptionView(emoji: "📱", text: "Order online")
             }
             Button(action: {
                 print("Join a room")

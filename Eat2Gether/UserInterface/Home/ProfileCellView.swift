@@ -14,11 +14,21 @@ enum PreferenceType {
     case transportation
 }
 
+struct PreferenceTag {
+    var type: PreferenceType
+    var detail: String
+}
+
 struct ProfileCellView: View {
+    var name: String = "Kate"
+    var image: String = "1"
+    var isHost: Bool = false
+    var preferences: [PreferenceTag] = []
+    
     var body: some View {
         VStack {
             ZStack (alignment: .bottom) {
-                Image("ProfilePic")
+                Image(image)
                     .resizable()
                     .frame(width: 85, height: 85)
                     .clipShape(Circle())
@@ -31,18 +41,17 @@ struct ProfileCellView: View {
                     .background(Constants.aqua)
                     .cornerRadius(20)
                     .padding(.vertical, 1)
-                    .opacity(1)
+                    .opacity(isHost ? 1 : 0)
             }
-            Text("You")
+            Text(name)
                 .font(.system(size: 14))
                 .bold()
                 .foregroundColor(Color.black)
             ScrollView {
                 VStack (spacing: 8) {
-                    PreferenceView(type: .dietRestriction, label: "🍗 Meat")
-                    PreferenceView(type: .priceRange, label: "$-$$")
-                    PreferenceView(type: .cuisineType, label: "🇯🇵 Japanese")
-                    PreferenceView(type: .transportation, label: "👣 By Foot")
+                    ForEach(0..<preferences.count) {i in
+                        PreferenceView(type: preferences[i].type, label: preferences[i].detail)
+                    }
                 }
             }
         }
@@ -86,6 +95,6 @@ struct PreferenceView: View {
 
 struct ProfileCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileCellView()
+        ProfileCellView(image: "1", isHost: false, preferences: [PreferenceTag(type: .dietRestriction, detail: "🍗 Meat")])
     }
 }

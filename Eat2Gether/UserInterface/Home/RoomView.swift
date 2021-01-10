@@ -16,11 +16,12 @@ struct RoomView: View {
                 .bold()
                 .font(.system(size: 28))
                 .foregroundColor(Constants.aqua)
-                .padding(.vertical, 24)
+                .padding(.vertical, 12)
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(0..<10) {_ in
-                        ProfileCellView()
+                    ForEach(0..<10) {i in
+                        ProfileCellView(name:Constants.names[i],
+                                        image: String(Int.random(in: 1...5)), isHost: i == 2 ? true : false, preferences: Constants.preferences[i])
                     }
                 }
             }
