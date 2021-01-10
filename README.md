@@ -4,7 +4,7 @@ Eat2Gether is an app that allows users to remotely decide upon a restaurant, fro
 
 It asks for preferences such as price point, cuisine type, and dietary restrictions. We take the location of every user in the room and determine a central point between everyone to make sure that we’re recommending a good location for everyone. After we get all our user preferences and locations, we process the search through the Google Places API in our node back-end and save the results to our database. 
 
-For more information on app demo and business plan, check out our video demo [https://youtu.be/ABL1zDvbfU4](https://youtu.be/ABL1zDvbfU4)
+For more information on app demo and business plan, check out our video demo [https://youtu.be/bQtExTGTRXc](https://youtu.be/bQtExTGTRXc)
 
 <br>
 <br>
