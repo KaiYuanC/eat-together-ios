@@ -1,4 +1,7 @@
 # eat-together-ios
+
+`eat-together-ios` is a code base for the Eat2Gether app! It is written in Swift5.3 and it uses SwiftUIs for the all of its views.
+
 # About Eat2Gether
 Eat2Gether is an app that allows users to remotely decide upon a restaurant, from which they can order through a delivery or take-out of their choice and ‘dine together’ in a virtual capacity. Hopefully, beyond the pandemic, it can also be used to come to a consensus when a group can’t decide what to eat (decisions are hard sometimes!)
 
