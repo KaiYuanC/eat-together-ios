@@ -28,6 +28,7 @@
 		32722CE925A90D850081FB5D /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32722CE825A90D850081FB5D /* ProfileCellView.swift */; };
 		3290914125A980FF00CE3C8F /* LocationFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3290914025A980FF00CE3C8F /* LocationFinderView.swift */; };
 		3290915525A987B200CE3C8F /* EnteryCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3290915425A987B200CE3C8F /* EnteryCodeView.swift */; };
+		32EB805625AAC1CE00651C22 /* newRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EB805525AAC1CE00651C22 /* newRoomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		32722CE825A90D850081FB5D /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
 		3290914025A980FF00CE3C8F /* LocationFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderView.swift; sourceTree = "<group>"; };
 		3290915425A987B200CE3C8F /* EnteryCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteryCodeView.swift; sourceTree = "<group>"; };
+		32EB805525AAC1CE00651C22 /* newRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newRoomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				32722CCD25A8F2DE0081FB5D /* HomeScreenView.swift */,
 				32722CE825A90D850081FB5D /* ProfileCellView.swift */,
 				32722CE325A90D6E0081FB5D /* RoomView.swift */,
+				32EB805525AAC1CE00651C22 /* newRoomView.swift */,
 				3290915425A987B200CE3C8F /* EnteryCodeView.swift */,
 			);
 			path = Home;
@@ -366,6 +369,7 @@
 				323A8DFA25A9942E00F9DAA6 /* FoodOptionView.swift in Sources */,
 				323A8E0225A9944900F9DAA6 /* FoodResultsView.swift in Sources */,
 				325F867425A80E4E00B675C8 /* Eat2Gether.xcdatamodeld in Sources */,
+				32EB805625AAC1CE00651C22 /* newRoomView.swift in Sources */,
 				3290914125A980FF00CE3C8F /* LocationFinderView.swift in Sources */,
 				325F866825A80E4A00B675C8 /* Eat2GetherApp.swift in Sources */,
 				32722CDB25A90CC90081FB5D /* UserNameView.swift in Sources */,

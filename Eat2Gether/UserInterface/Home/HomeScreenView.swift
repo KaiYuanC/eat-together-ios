@@ -25,18 +25,16 @@ struct HomeScreenView: View {
                         )
                         .padding(.bottom, 18)
                 }
-                Button(action: {
-                    print("Generate room")
-                }) {
+                NavigationLink(destination: newRoomView().navigationBarTitleDisplayMode(.inline)) {
                     Text("Generate room")
                         .font(.system(size: 14))
                         .foregroundColor(Color.white)
                         .frame(width: 200, height: 30)
                         .background(Constants.aqua)
                         .cornerRadius(20)
+                        .padding(.bottom, 50)
                 }
             }
-            .padding(.bottom, 50)
         }
     }
 }
