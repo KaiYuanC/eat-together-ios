@@ -2,6 +2,8 @@
 
 `eat-together-ios` is a codebase for the Eat2Gether app! It is written in Swift5.3 and it uses SwiftUIs for the all of its views.
 
+It uses a server and the server is implemented in `eat-together-backend`, please checkout the [eat-together-backend git repo](https://github.com/selinahsu/eat-together-backend)
+
 If you would like to test out the app, you can simply clone/download this repo, open in XCode, and run on a simulator or a real device.
 
 # About Eat2Gether
